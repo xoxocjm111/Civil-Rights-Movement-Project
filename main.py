@@ -2,12 +2,23 @@ from termcolor import colored
 import os
 import webbrowser
 import textwrap
+import time
 
 url = 'https://github.com/xoxocjm111/History-Project'
 #windows path
 chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+version = '1.3.1'
+about_me = 'Period 5 History Project ' f'Version {version}' ' Developed by Christopher McCormick :)'
 
-
+def exit_timer():
+   exit_status = 5
+   while exit_status > 0:
+      exit_status = exit_status - 1
+      print(colored(f'Exiting in {exit_status}', 'blue'))
+      time.sleep(1)
+   if exit_status == 0:
+      os.system('cls')
+      exit()
 os.system('cls')
 print(colored("""  _______ _             _____ _       _ _   _____  _       _     _         __  __                                     _   
  |__   __| |           / ____(_)     (_) | |  __ \(_)     | |   | |       |  \/  |                                   | |  
@@ -20,7 +31,10 @@ print(colored("""  _______ _             _____ _       _ _   _____  _       _   
 
 
 print('')
-print(colored('[1] Information', 'blue'))
+print(colored(f'Version: {version}', 'green'))  
+print('')
+print('')
+print(colored('[1] Code Information (UPDATED REGULARLY)', 'blue'))
 print('')
 print(colored('[2] Rosa Parks and the Bus Boycotts', 'red'))
 print('')
@@ -28,9 +42,14 @@ print(colored('[3] Little Rock 9', 'blue'))
 print('')
 print(colored('[4] March On Washington', 'red'))
 print('')
+print(colored('[5] About', 'blue'))
+print('')
+print(colored('[6] Exit', 'red'))
+print('')
+
 while True:
 
-   user_input = int(input(colored('[] Type Here: ', 'blue')))
+   user_input = int(input(colored('[!] Type Here: ', 'blue')))
 
    if user_input == 1:
       webbrowser.get(chrome_path).open(url)
@@ -63,6 +82,12 @@ while True:
       print(textwrap.fill(colored("""About 250,000 people are participating in  March on Washington for Jobs and Freedom. 
                                      Martin Luther King delivered his  closing address at the Lincoln Memorial, declaring, "I have a dream that one day this country will rise  and live  the true meaning of the creed: `We stand our ground. 
                                      These facts are self-evident: that all men are created equal.""", 'blue')))
+   elif user_input == 5:
+      os.system('cls')
+      print('')
+      print(colored(about_me, 'green'))
+   else:
+      exit_timer()
    print('')
    u_i = input(colored('[Y,N]Continue?: ', 'blue'))
    if u_i == 'y' or 'Y':
@@ -71,3 +96,5 @@ while True:
       os.system('cls')
       exit()
    
+   
+#indents to make it 100 just cuz lol :3
