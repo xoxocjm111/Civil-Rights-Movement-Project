@@ -19,6 +19,11 @@ def exit_timer():
    if exit_status == 0:
       os.system('cls')
       exit()
+      
+def clear_reset():
+   os.system('cls')
+   os.system('python main.py')
+
 os.system('cls')
 print(colored("""  _______ _             _____ _       _ _   _____  _       _     _         __  __                                     _   
  |__   __| |           / ____(_)     (_) | |  __ \(_)     | |   | |       |  \/  |                                   | |  
@@ -53,8 +58,7 @@ while True:
 
    if user_input == 1:
       webbrowser.get(chrome_path).open(url)
-      os.system('cls')
-      os.system('python main.py')
+      clear_reset()
       
    elif user_input == 2:
       os.system('cls')
